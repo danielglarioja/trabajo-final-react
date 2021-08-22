@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 const RestaurantsList = props => {
   const [restaurants, setRestaurants] = useState([]);
-  const [searchName, setSearchName ] = useState("");
-  const [searchZip, setSearchZip ] = useState("");
   const [searchCuisine, setSearchCuisine ] = useState("");
   const [cuisines, setCuisines] = useState(["Tipo de Cocina"]);
 
@@ -13,16 +11,6 @@ const RestaurantsList = props => {
     retrieveRestaurants();
     retrieveCuisines();
   }, []);
-
-  const onChangeSearchName = e => {
-    const searchName = e.target.value;
-    setSearchName(searchName);
-  };
-
-  const onChangeSearchZip = e => {
-    const searchZip = e.target.value;
-    setSearchZip(searchZip);
-  };
 
   const onChangeSearchCuisine = e => {
     const searchCuisine = e.target.value;
@@ -69,14 +57,6 @@ const RestaurantsList = props => {
       });
   };
 
-  const findByName = () => {
-    find(searchName, "name")
-  };
-
-  const findByZip = () => {
-    find(searchZip, "zipcode")
-  };
-
   const findByCuisine = () => {
     if (searchCuisine == "Tipo de Cocina") {
       refreshList();
@@ -87,45 +67,9 @@ const RestaurantsList = props => {
 
   return (
     <div>
+      <h1>RESTAURANTS - LA RIOJA</h1>
       <div className="row pb-1">
         <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by name"
-            value={searchName}
-            onChange={onChangeSearchName}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByName}
-            >
-              Buscar
-            </button>
-          </div>
-        </div>
-        <div className="input-group col-lg-4">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by zip"
-            value={searchZip}
-            onChange={onChangeSearchZip}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={findByZip}
-            >
-              Buscar
-            </button>
-          </div>
-        </div>
-        <div className="input-group col-lg-4">
-
           <select onChange={onChangeSearchCuisine}>
              {cuisines.map(cuisine => {
                return (
