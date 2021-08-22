@@ -47,14 +47,20 @@ const Restaurant = props => {
       {restaurant ? (
         <div>
           <h5>{restaurant.name}</h5>
+          <img src={restaurant.url} />
           <p>
-            <strong>Cuisine: </strong>{restaurant.cuisine}<br/>
-            <strong>Address: </strong>{restaurant.address.building} {restaurant.address.street}, {restaurant.address.zipcode}
+            <strong>Cocina: </strong>{restaurant.cuisine}<br/>
+            <strong>Direccion: </strong>{restaurant.address.building} {restaurant.address.street}, {restaurant.address.zipcode}
           </p>
+          <div className="row">
           <Link to={"/restaurants/" + props.match.params.id + "/review"} className="btn btn-primary">
-            Add Review
+            Ingrese su comentario
+          </Link><br/>
+          <Link to={"/restaurants" } className="btn btn-danger">
+            Regresar
           </Link>
-          <h4> Reviews </h4>
+          </div>
+          <h4> Comentarios </h4>
           <div className="row">
             {restaurant.reviews.length > 0 ? (
              restaurant.reviews.map((review, index) => {
@@ -64,18 +70,18 @@ const Restaurant = props => {
                      <div className="card-body">
                        <p className="card-text">
                          {review.text}<br/>
-                         <strong>User: </strong>{review.name}<br/>
-                         <strong>Date: </strong>{review.date}
+                         <strong>Usuario: </strong>{review.name}<br/>
+                         <strong>Fecha: </strong>{review.date}
                        </p>
                        {props.user && props.user.id === review.user_id &&
                           <div className="row">
-                            <a onClick={() => deleteReview(review._id, index)} className="btn btn-primary col-lg-5 mx-1 mb-1">Delete</a>
+                            <a onClick={() => deleteReview(review._id, index)} className="btn btn-primary col-lg-5 mx-1 mb-1">Borrar</a>
                             <Link to={{
                               pathname: "/restaurants/" + props.match.params.id + "/review",
                               state: {
                                 currentReview: review
                               }
-                            }} className="btn btn-primary col-lg-5 mx-1 mb-1">Edit</Link>
+                            }} className="btn btn-primary col-lg-5 mx-1 mb-1">Editar</Link>
                           </div>                   
                        }
                      </div>
@@ -85,7 +91,7 @@ const Restaurant = props => {
              })
             ) : (
             <div className="col-sm-4">
-              <p>No reviews yet.</p>
+              <p>Sin comentarios igresados.</p>
             </div>
             )}
 
@@ -95,7 +101,7 @@ const Restaurant = props => {
       ) : (
         <div>
           <br />
-          <p>No restaurant selected.</p>
+          <p>Ningun restaurant seleccionado.</p>
         </div>
       )}
     </div>

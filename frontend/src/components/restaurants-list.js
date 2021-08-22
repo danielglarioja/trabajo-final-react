@@ -7,7 +7,7 @@ const RestaurantsList = props => {
   const [searchName, setSearchName ] = useState("");
   const [searchZip, setSearchZip ] = useState("");
   const [searchCuisine, setSearchCuisine ] = useState("");
-  const [cuisines, setCuisines] = useState(["All Cuisines"]);
+  const [cuisines, setCuisines] = useState(["Tipo de Cocina"]);
 
   useEffect(() => {
     retrieveRestaurants();
@@ -46,7 +46,7 @@ const RestaurantsList = props => {
     RestaurantDataService.getCuisines()
       .then(response => {
         console.log(response.data);
-        setCuisines(["All Cuisines"].concat(response.data));
+        setCuisines(["Tipo de Cocina"].concat(response.data));
         
       })
       .catch(e => {
@@ -78,7 +78,7 @@ const RestaurantsList = props => {
   };
 
   const findByCuisine = () => {
-    if (searchCuisine == "All Cuisines") {
+    if (searchCuisine == "Tipo de Cocina") {
       refreshList();
     } else {
       find(searchCuisine, "cuisine")
@@ -102,7 +102,7 @@ const RestaurantsList = props => {
               type="button"
               onClick={findByName}
             >
-              Search
+              Buscar
             </button>
           </div>
         </div>
@@ -120,7 +120,7 @@ const RestaurantsList = props => {
               type="button"
               onClick={findByZip}
             >
-              Search
+              Buscar
             </button>
           </div>
         </div>
@@ -139,7 +139,7 @@ const RestaurantsList = props => {
               type="button"
               onClick={findByCuisine}
             >
-              Search
+              Buscar
             </button>
           </div>
 
@@ -147,21 +147,23 @@ const RestaurantsList = props => {
       </div>
       <div className="row">
         {restaurants.map((restaurant) => {
-          const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
+          const address = `${restaurant.address.coord}`;
           return (
             <div className="col-lg-4 pb-1">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{restaurant.name}</h5>
+                  <img src={restaurant.url} />
                   <p className="card-text">
-                    <strong>Cuisine: </strong>{restaurant.cuisine}<br/>
-                    <strong>Address: </strong>{address}
+                    <strong>Cocina: </strong>{restaurant.cuisine}<br/>
+                    <strong>Direccion: </strong>{restaurant.address.street}{restaurant.address.building}<br/>
+                    <strong>Reservas: </strong>{restaurant.telefono}
                   </p>
                   <div className="row">
                   <Link to={"/restaurants/"+restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
-                    View Reviews
+                    Ver comentarios
                   </Link>
-                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">View Map</a>
+                  <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">Ver ubicacion</a>
                   </div>
                 </div>
               </div>

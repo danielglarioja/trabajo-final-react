@@ -56,15 +56,15 @@ const AddReview = props => {
       <div className="submit-form">
         {submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
+            <h4>Su comentario fue ingresado, gracias!</h4>
             <Link to={"/restaurants/" + props.match.params.id} className="btn btn-success">
-              Back to Restaurant
+              Ver comentarios
             </Link>
           </div>
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="description">{ editing ? "Edit" : "Create" } Review</label>
+              <label htmlFor="description">{ editing ? "Editar" : "Comentar" } </label>
               <input
                 type="text"
                 className="form-control"
@@ -76,7 +76,7 @@ const AddReview = props => {
               />
             </div>
             <button onClick={saveReview} className="btn btn-success">
-              Submit
+              Guardar Comentario
             </button>
           </div>
         )}
@@ -84,7 +84,7 @@ const AddReview = props => {
 
       ) : (
       <div>
-        Please log in.
+        Ingrese o registrese para comentar
       </div>
       )}
 
