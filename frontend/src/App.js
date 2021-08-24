@@ -6,6 +6,8 @@ import AddReview from "./components/add-review";
 import Restaurant from "./components/restaurants";
 import RestaurantsList from "./components/restaurants-list";
 import Login from "./components/login";
+import { MapView } from "./viewMap/MapView";
+
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -42,6 +44,11 @@ function App() {
             )}
 
           </li>
+          <li className="nav-item">
+            <Link to={"/map"} className="nav-link">
+              Ver Mapa
+            </Link>
+          </li>
         </div>
       </nav>
 
@@ -66,6 +73,7 @@ function App() {
               <Login {...props} login={login} />
             )}
           />
+          <Route exact path="/map" component={MapView} />
         </Switch>
       </div>
     </div>
