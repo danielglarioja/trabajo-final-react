@@ -14,28 +14,28 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 export class MapLeaflet extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             lat: 51.505,
             lng: -0.09,
         };
-    } 
+    }
 
     render() {
         return (
             <MapContainer className="leaflet-container" center={this.props.position} zoom={8} scrollWheelZoom={true}>
                 <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <Marker position={this.props.position}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
                 </Marker>
-            </MapContainer> 
+            </MapContainer>
         )
     }
-    
+
 }
