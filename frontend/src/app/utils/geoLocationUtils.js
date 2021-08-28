@@ -1,0 +1,1 @@
+export const checkGeoLocation = () => ("geolocation" in navigator);

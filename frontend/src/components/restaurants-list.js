@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import RestaurantDataService from "../services/restaurant";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+const mapStateToPprops = state => ({
+  restaurants: state.restaurantsListReducer.restaurants
+})
 
 const RestaurantsList = props => {
   const [restaurants, setRestaurants] = useState([]);
@@ -93,6 +98,9 @@ const RestaurantsList = props => {
             >
               <a target="_blank" href={"https://goo.gl/maps/rpu4p73vkuiWAnuQ8"} >Guia Maps</a>
             </button>
+            <button className="btn btn-success">
+              cargar restaurants
+            </button>
           </div>
 
         </div>
@@ -116,7 +124,7 @@ const RestaurantsList = props => {
                       Ver comentarios
                     </Link>
                     <a target="_blank" href={"https://www.google.com/maps/place/" + address} className="btn btn-primary col-lg-5 mx-1 mb-1">Ver ubicacion</a>
-                  </div>
+                  </div>              
                 </div>
               </div>
             </div>
@@ -129,4 +137,4 @@ const RestaurantsList = props => {
   );
 };
 
-export default RestaurantsList;
+export default connect(mapStateToPprops)(RestaurantsList) ;
