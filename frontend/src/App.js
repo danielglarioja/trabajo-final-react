@@ -6,7 +6,7 @@ import AddReview from "./components/add-review";
 import Restaurant from "./components/restaurants";
 import RestaurantsList from "./components/restaurants-list";
 import Login from "./components/login";
-import MapView from "./Map/mapView";
+//import MapView from "./Map/mapView";
 import NavBar from "./components/NavBar/navBar";
 
 
@@ -40,7 +40,7 @@ function App() {
             <Login {...props} login={login} />
           )}
           />
-          <Route exact path="/map" component={MapView} />
+        
         </Switch>
       </div>
 
