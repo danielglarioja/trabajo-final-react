@@ -3,30 +3,22 @@ REACT - NODE
 
 Daniel Ardiles 
 
-El presente proyecto se desarrolla siguiendo las consignas indicadas en el "CURSO TÉCNICO #6: INTEGRADOR"
+Este proyecto se desarrolla siguiendo las consignas indicadas en el "CURSO TÉCNICO #6: INTEGRADOR"
 
 CURSO TÉCNICO #6: INTEGRADOR
 Premisas:
-El curso Integrador deberá:
-1. Aplicar las 3 tecnologías: Node, React y React Native.
-    ***En este proyecto se aplican 2 tecnologías: Node, React.
 
-2. Darles a los participantes una elección libre de la temática:
-a) Lugares turísticos de La Rioja.
-b) Puntos de vacunación contra COVID-19.
-c) Locales de gastronomía.
-d) Paradas de colectivo.
-    ***Tematica elegida: Opcion c) Locales de gastronomía. "Restaurants de La Rioja"
+1. ***En este proyecto se aplican 2 tecnologías: Node, React.
 
-3. El recurso elegido por la temática debe ser geolocalizable. Se debe incluir un campo
-a una URL de imagen.
-    ***Recurso geolocalizable. incluye campo a una URL.
+2. ***Tematica elegida: Opcion c) Locales de gastronomía. "Restaurants de La Rioja"
 
-4. Tener bien definidos la cantidad de actividades y objetivos de cada una.
-    ***Se Listan todos los restaurants disponibles, con acceso a comentarios y ubicacion.
+3. ***Recurso geolocalizable. incluye campo a una URL.
+
+4. Funcionalidad:
+    ***Se Listan varios restaurants con acceso a comentarios y ubicacion usando coordenadas de cada restaurant.
     ***Se accede a lectura detalles del restaurant seleccionado y los comentarios recibidos.
     ***Permite Logueo simple de usuario para agregar sus propios comentarios.
-    ***CRUD para crear, editar y/o eliminar comentarios.
+    ***Incluye CRUD para crear, editar y/o eliminar comentarios.
     ***Acceso a la guiaMaps de todos los restaurants listados.
 
 ## Extras
@@ -89,7 +81,7 @@ y en el body solo el usuario y contraseña:(ejemplo)
 "user_id":"1234",      <--aqui debe ser mismo id o contraseña
 "name":"daniel"        <--aqui el mismo usuario
 }
-### Pendiente
-    redux
+
+
 
 
