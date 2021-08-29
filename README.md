@@ -30,7 +30,7 @@ GuiaMaps: Se comparte link de googleMaps con todos los restaurants mostrados en 
 https://cloud.mongodb.com/v2/611aff1c959e07037c5e2460#metrics/replicaSet/611affec2cc2071c7c6fea24/explorer/larioja_restaurants
 
 ## Repositorio de Github
-    https://github.com/danielglarioja/trabajo-final-integrador.git
+    https://github.com/danielglarioja/trabajo-final-react.git
 
 ## Run proyect
 In the project directory, you can run:
